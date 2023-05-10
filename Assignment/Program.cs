@@ -40,6 +40,7 @@
     {
         static void Main()
         {
+            Console.WriteLine("HelloWorld!");
             /*
             const int Min = 0;
             const int Max = 10;
