@@ -9,6 +9,8 @@
         /// <returns>A deep copy of the original array</returns>
         public static int[] ReplicateArray(int[] original)
         {
+            int[] result = original;
+            return original;
             throw new NotImplementedException();
         }
 
@@ -19,6 +21,9 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumber(string text)
         {
+            Console.Write(text);
+            int userInput = Convert.ToInt32(Console.ReadLine());
+            return userInput;
             throw new NotImplementedException();
         }
 
@@ -32,6 +37,16 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
+            Console.Write(text);
+            int userInput = Convert.ToInt32(Console.ReadLine());
+            if(min <= userInput && userInput <= max)
+            {
+                return userInput;
+            }
+            else
+            {
+                Console.WriteLine("Number is not in the range!");
+            }
             throw new NotImplementedException();
         }
     }
@@ -40,7 +55,8 @@
     {
         static void Main()
         {
-            Console.WriteLine("HelloWorld!");
+            //ArrayReplicator.AskForNumber("Please enter a value between 0 - 10: ");
+            ArrayReplicator.AskForNumberInRange("Enter a number", 1, 5);
             /*
             const int Min = 0;
             const int Max = 10;
