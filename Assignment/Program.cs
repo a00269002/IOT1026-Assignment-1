@@ -9,9 +9,12 @@
         /// <returns>A deep copy of the original array</returns>
         public static int[] ReplicateArray(int[] original)
         {
-            int[] result = original;
-            return original;
-            throw new NotImplementedException();
+            int[] result = new int[original.Length];
+            for (int item = 0; item < original.Length; item++)
+            {
+                result[item] = original[item];
+            }
+            return result;
         }
 
         /// <summary>
@@ -21,10 +24,24 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumber(string text)
         {
-            Console.Write(text);
-            int userInput = Convert.ToInt32(Console.ReadLine());
+            int userInput = 0;
+            bool validInput = false;
+            //Do-while loop to ensure that the user input is valid, and also catch the exception
+            do
+            {
+                try
+                {
+                    Console.Write(text);
+                    userInput = Convert.ToInt32(Console.ReadLine());
+                    validInput = true;
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input...Enter a valid number");
+                }
+            }
+            while (!validInput);
             return userInput;
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -37,17 +54,31 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
-            Console.Write(text);
-            int userInput = Convert.ToInt32(Console.ReadLine());
-            if(min <= userInput && userInput <= max)
+            int userInput = 0;
+            bool validInput = false;
+            //Do-while loop to ensure that the input is inside the defined range, also catch the exception    
+            do
             {
-                return userInput;
+                try
+                {
+                    Console.Write(text);
+                    userInput = Convert.ToInt32(Console.ReadLine());
+                    if (min <= userInput && userInput <= max)
+                    {
+                        validInput = true;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"{userInput} is not in the specific range. Try again");
+                    }
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Invalid input...Enter a valid number");
+                }
             }
-            else
-            {
-                Console.WriteLine("Number is not in the range!");
-            }
-            throw new NotImplementedException();
+            while (!validInput);
+            return userInput;
         }
     }
 
@@ -55,9 +86,6 @@
     {
         static void Main()
         {
-            //ArrayReplicator.AskForNumber("Please enter a value between 0 - 10: ");
-            ArrayReplicator.AskForNumberInRange("Enter a number", 1, 5);
-            /*
             const int Min = 0;
             const int Max = 10;
             const int PrintOffset = 4;
@@ -75,7 +103,6 @@
             // Verify original and replicated array are the same
             for (int index = 0; index < size; ++index)
                 Console.WriteLine($"Original {original[index],-PrintOffset}  {copy[index],4} Copy");
-            */
         }
     }
 }
