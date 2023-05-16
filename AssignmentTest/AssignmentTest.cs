@@ -21,7 +21,7 @@ namespace AssignmentTest
             CollectionAssert.AreEqual(original, result);
             Assert.AreNotSame(original, result);
         }
-        
+
         public void ReplicateArray_ArrayWithElements()
         {
             int[] original = new int[] { 1, 2, 3 };
