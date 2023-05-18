@@ -54,30 +54,12 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
-            int userInput = 0;
-            bool validInput = false;
-            //Do-while loop to ensure that the input is inside the defined range, also catch the exception    
-            do
+            int userInput = AskForNumber(text);
+            while (userInput < min || userInput > max)
             {
-                try
-                {
-                    Console.Write(text);
-                    userInput = Convert.ToInt32(Console.ReadLine());
-                    if (min <= userInput && userInput <= max)
-                    {
-                        validInput = true;
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{userInput} is not in the specific range. Try again");
-                    }
-                }
-                catch (FormatException)
-                {
-                    Console.WriteLine("Invalid input...Enter a valid number");
-                }
+                Console.WriteLine($"{userInput} is not in the specific range. Try again");
             }
-            while (!validInput);
+
             return userInput;
         }
     }
