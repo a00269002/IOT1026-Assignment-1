@@ -55,6 +55,7 @@
         public static int AskForNumberInRange(string text, int min, int max)
         {
             int userInput = 0;
+            //Do-while to ensure that the user input a value inside the range
             do
             {
                 userInput = AskForNumber(text);
