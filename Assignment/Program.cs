@@ -54,12 +54,15 @@
         /// <returns>The user input as an integer</returns>
         public static int AskForNumberInRange(string text, int min, int max)
         {
-            int userInput = AskForNumber(text);
-            while (userInput < min || userInput > max)
+            int userInput = 0;
+            do
             {
-                Console.WriteLine($"{userInput} is not in the specific range. Try again");
-            }
-
+                userInput = AskForNumber(text);
+                if (userInput < min || userInput > max)
+                {
+                    Console.WriteLine($"{userInput} is not in the specific range. Try again");
+                }
+            } while (userInput < min || userInput > max);
             return userInput;
         }
     }
