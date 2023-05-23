@@ -12,7 +12,10 @@
 </p>
 
 # IOT1026-Assignment-1
-Write a description of the project here and don't forget to update the badges.  
+Project to copy all the int elements of the array. User can input the size and also each value of the original array. 
+        
+        
+<img width="192" alt="Screenshot 2023-05-23 at 4 32 49 PM" src="https://github.com/a00269002/IOT1026-Assignment-1/assets/123220170/cad657b9-62aa-432a-b28a-5036c4ad7707">
 
 [Assignment Instructions](docs/instructions.md)  
 [How to start coding](docs/how-to-use.md)  
